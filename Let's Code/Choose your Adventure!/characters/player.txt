@@ -1,0 +1,7 @@
+NAME
+AGE
+XP
+HP
+STRENGTH
+LUCK
+Item = sword,shield

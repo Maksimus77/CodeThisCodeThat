@@ -1,0 +1,24 @@
+Number of chapter = 5
+
+@1 Chapter 1
+some text
+#
+some choice test
+~ choice 1
+~ choice 2
+~ choice 3
+#
+some other choice test
+~ choice 1
+~ choice 2
+~ choice 3
+
+@2 Chapter 2
+
+@3 Final Chapter
+
+@w Win
+# You've won! #
+
+@l Game Over
+# Oh no you lost! #
