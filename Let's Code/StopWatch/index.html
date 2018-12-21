@@ -3,9 +3,12 @@
     <meta charset="UTF-8">
     <script type="text/javascript" src="js/stopwatch.js"></script>
   </head>
-  <body onload="initialize()"">
+  <body onload="initialize()">
     <p id="time">Timer</p>
-    <button onclick="start()" id="button">Start</button>
+    <div id="lap_time">
 
+    </div>
+    <button onclick="start()" id="button">Start</button>
+    <button onclick="laps()" id="lapping">Lap</button>
   </body>
 </html>
