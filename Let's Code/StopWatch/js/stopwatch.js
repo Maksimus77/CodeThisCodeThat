@@ -1,30 +1,45 @@
-var timer = document.getElementById("time");
-var button = document.getElementById("button");
-var isStop = 0;
+var Timer;
+var Button;
+var isStop;
 
+function initialize(){
+  Timer = document.getElementById("time");
+  Button = document.getElementById("button");
+  isStop = 0;
+}
+
+// Start the watch and print the final time
 function start(){
-  document.getElementById("time").innerHTML = "0 seconds";
+  Timer.innerHTML = "0 seconds";
 
-  document.getElementById("button").innerHTML = "Stop";
-  document.getElementById("button").setAttribute('onclick','stop()');
+  Button.innerHTML = "Stop";
+  Button.setAttribute('onclick','stop()');
 
   isStop = 0;
   setTimeout(increment,1000);
 }
 
+// Stop the watch and print the final time
 function stop(){
   isStop = 1;
-  document.getElementById("time").innerHTML = "Your Finale time is: " + document.getElementById("time").innerHTML;
-  document.getElementById("button").innerHTML = "Start";
-  document.getElementById("button").setAttribute('onclick','start()');
+  Timer.innerHTML = "Your Finale time is: " + Timer.innerHTML;
+  Button.innerHTML = "Start";
+  Button.setAttribute('onclick','start()');
 }
 
+// Function that will increment the number on the Timer by one
 function increment(){
-  if(isStop == 1){
-    return;
-  }
-  var time = Number(document.getElementById("time").innerHTML.split(" ")[0]);
+  if(isStop == 1) return;
+  // Get the current time, increment it and set it back
+  var time = getCurrentTime();
   time = time + 1;
-  document.getElementById("time").innerHTML = time + " seconds";
+  Timer.innerHTML = time + " seconds";
+
+  // Recurse
   setTimeout(increment, 1000);
+}
+
+// Helper function
+function getCurrentTime(){
+  return Number(Timer.innerHTML.split(" ")[0]);
 }
