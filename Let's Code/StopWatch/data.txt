@@ -1,0 +1,25 @@
+End time: 32 seconds 
+-------------------End time: 5 seconds 
+-------------------End time: 11 seconds 
+Laps 0: 3 seconds 
+Laps 1: 4 seconds 
+Laps 2: 5 seconds 
+Laps 3: 7 seconds 
+Laps 4: 9 seconds 
+-------------------End time: 6 seconds 
+-------------------End time: 6 seconds 
+-------------------End time: 16 seconds 
+-------------------End time: 32 seconds 
+Laps 0: 1 seconds 
+Laps 1: 2 seconds 
+Laps 2: 5 seconds 
+-------------------End time: 6 seconds 
+Laps 0: 2 seconds 
+Laps 1: 2 seconds 
+Laps 2: 3 seconds 
+Laps 3: 4 seconds 
+Laps 4: 4 seconds 
+Laps 5: 5 seconds 
+-------------------
+End time: 0 seconds 
+-------------------

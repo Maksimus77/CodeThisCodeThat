@@ -1,9 +1,14 @@
+// Variables for inner working
 var Timer;
 var Button;
 var Lap;
-var isStop;
-var current_path = 'C:\\Users\\biapt\\Documents\\GitHub\\CodeThisCodeThat\\Let\'s Code\\StopWatch';
+var isStop
 
+// Variable for saving the state
+var current_time;
+var current_laps;
+
+// When the page is loaded
 function initialize(){
   Timer = document.getElementById("time");
   Button = document.getElementById("button");
@@ -11,8 +16,11 @@ function initialize(){
   isStop = 0;
 }
 
+
 // Start the watch and print the final time
 function start(){
+  current_time = 0;
+  current_laps = new Array();
   Timer.innerHTML = "0 seconds";
 
   Button.innerHTML = "Stop";
@@ -31,25 +39,26 @@ function stop(){
   while (Lap.firstChild) {
     Lap.removeChild(Lap.firstChild);
   }
+  sendTime();
 }
 
 // Function that will increment the number on the Timer by one
 function increment(){
+  // Base case
   if(isStop == 1) return;
-  // Get the current time, increment it and set it back
-  var time = getCurrentTime();
-  time = time + 1;
-  Timer.innerHTML = time + " seconds";
 
+  current_time = current_time+1;
+  Timer.innerHTML = current_time + " seconds";
   // Recurse
   setTimeout(increment, 1000);
 }
 
 function laps(){
   if(isStop == 0){
-    var node = document.createElement("P");                 // Create a <li> node
-    var textnode = document.createTextNode("Time: " + Timer.innerHTML);         // Create a text node
-    node.appendChild(textnode);                              // Append the text to <li>
+    current_laps.push(current_time);
+    var node = document.createElement("P");
+    var textnode = document.createTextNode("Time: " + Timer.innerHTML);
+    node.appendChild(textnode);
     Lap.appendChild(node);
   }
 }
@@ -57,4 +66,14 @@ function laps(){
 // Helper function
 function getCurrentTime(){
   return Number(Timer.innerHTML.split(" ")[0]);
+}
+
+function sendTime(){
+  var xhttp = new XMLHttpRequest();
+  var base_string = "php/io.php?time="+current_time;
+  for (var i = 0; i < current_laps.length; i++) {
+    base_string = base_string + "&l" + i + "="+current_laps[i];
+  }
+  xhttp.open("GET", base_string, true);
+  xhttp.send();
 }
